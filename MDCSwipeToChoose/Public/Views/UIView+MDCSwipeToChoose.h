@@ -58,4 +58,9 @@
  */
 - (void)mdc_swipe:(MDCSwipeDirection)direction;
 
+/*!
+ * Returns a reference to the MDC panGestureRecognizer.
+ */
+- (UIPanGestureRecognizer*)mdc_panGestureRecognizer;
+
 @end
