@@ -103,8 +103,8 @@ const void * const MDCViewStateKey = &MDCViewStateKey;
 
 - (void)mdc_setupPanGestureRecognizer {
     SEL action = @selector(mdc_onSwipeToChoosePanGestureRecognizer:);
-    UIPanGestureRecognizer *panGestureRecognizer =
-    [[UIPanGestureRecognizer alloc] initWithTarget:self
+    UISwipeGestureRecognizer *panGestureRecognizer =
+    [[UISwipeGestureRecognizer alloc] initWithTarget:self
                                             action:action];
     [self addGestureRecognizer:panGestureRecognizer];
 }
