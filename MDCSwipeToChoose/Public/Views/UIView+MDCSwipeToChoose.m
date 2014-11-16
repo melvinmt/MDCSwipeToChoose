@@ -30,6 +30,7 @@
 
 const void * const MDCSwipeOptionsKey = &MDCSwipeOptionsKey;
 const void * const MDCViewStateKey = &MDCViewStateKey;
+const void * const MDCPanGestureKey = &MDCPanGestureKey;
 
 @implementation UIView (MDCSwipeToChoose)
 
@@ -85,6 +86,10 @@ const void * const MDCViewStateKey = &MDCViewStateKey;
     return objc_getAssociatedObject(self, MDCSwipeOptionsKey);
 }
 
+- (UIPanGestureRecognizer*)mdc_panGestureRecognizer {
+    return objc_getAssociatedObject(self, MDCPanGestureKey);
+}
+
 - (void)setMdc_viewState:(MDCViewState *)state {
     objc_setAssociatedObject(self, MDCViewStateKey, state, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
@@ -106,8 +111,9 @@ const void * const MDCViewStateKey = &MDCViewStateKey;
     UIPanGestureRecognizer *panGestureRecognizer =
     [[UIPanGestureRecognizer alloc] initWithTarget:self
                                             action:action];
-    panGestureRecognizer.minimumNumberOfTouches = 2;
+
     [self addGestureRecognizer:panGestureRecognizer];
+    self.mdc_panGestureRecognizer = panGestureRecognizer;
 }
 
 #pragma mark Translation
