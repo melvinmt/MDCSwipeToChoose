@@ -87,7 +87,7 @@ const void * const MDCPanGestureKey = &MDCPanGestureKey;
 }
 
 -(void)setMdc_panGestureRecognizer:(UIPanGestureRecognizer*)panGestureRecognizer {
-    objc_setAssociatedObject(self, MDCPanGestureKey, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, MDCPanGestureKey, panGestureRecognizer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (UIPanGestureRecognizer*)mdc_panGestureRecognizer {
